@@ -14,20 +14,27 @@
         <script type="text/babel">
 
         class TextAreaCounter extends React.Component {
-            //bezstanowa wersja startowa
+            //stanowa wersja startowa
+            constructor() {
+            /*
+                Najpierw musisz ustawić początkowy stan w konstruktorze klasy za pomocą składni this.state.
+                Pamiętaj, że stan można ustawiać bezpośrednio tylko w konstruktorze. W pozostałych przypadkach
+                można go ustawiać jedynie za pomocą metody this.setState().
+            */
+                super();
+                this.state = {};
+            }
+
             render() {
-                const text = this.props.text;
+                const text = 'text' in this.state ? this.state.text : this.props.text;
                 return (
                     <div>
-                        <textarea defaultValue={text}/>
+                        <textarea defaultValue={text} />
                         <h3>{text.length}</h3>
                     </div>
                     );
                 }
             }
-            TextAreaCounter.defaultProps = {
-                text: 'Policz, ile razy naciskam klawisz',
-            };
 
         ReactDOM.render(
             <TextAreaCounter text="Jan" />,
