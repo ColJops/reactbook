@@ -12,11 +12,13 @@
         <script src="react/react-dom.js"></script>
         <script src="react/babel.js"></script>
         <script type="text/babel">
-        const MyComponent = function() {
-            return React.createElement('span', null, ' Jestem zupełnie niestandardowy');
-            };
+        class MyComponent extends React.Component {
+            render() {
+                return <span>Mam na imię <em>{this.props.name}</em></span>;
+            }
+        }
         ReactDOM.render(
-            MyComponent(),
+            <MyComponent name="Daniel"/>,
             document.getElementById('app')
         );
         </script>
