@@ -15,6 +15,10 @@
         const MyComponent = function({name, job}) {
             return <span>Mam na imię <em>{name}</em>, pracuję jako <b>{job}</b>.</span>;
         };
+            //Wartość domyślna
+            MyComponent.defaultProps = {
+                job: 'inżynier',
+            }
         ReactDOM.render(
             <MyComponent name="Daniel" job="Full Stack Developer" />,
             document.getElementById('app')
