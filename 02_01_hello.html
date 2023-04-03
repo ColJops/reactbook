@@ -24,18 +24,27 @@
                 super();
                 this.state = {};
             }
+            //Metoda pomocnicza
+            onTextChange(event) {
+                this.setState({
+                    text: event.target.value,
+                    });
+                }
 
             render() {
                 const text = 'text' in this.state ? this.state.text : this.props.text;
                 return (
                     <div>
-                        <textarea defaultValue={text} />
-                        <h3>{text.length}</h3>
+                        <textarea
+                            value={text}
+                            onChange={event => this.onTextChange(event)}
+                        />
+                        <h3>Ilość wciśnień klawiszy: {text.length}</h3>
                     </div>
                     );
                 }
             }
-
+        
         ReactDOM.render(
             <TextAreaCounter text="Jan" />,
             document.getElementById('app')
